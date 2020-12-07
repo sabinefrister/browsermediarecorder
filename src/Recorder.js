@@ -43,16 +43,16 @@ class Recorder extends Component {
 		var chunks = [];
 
 		this.mediaRecorder.onstop = function(event) {
-			var fileName = prompt("Please enter a name for your sound clip.", 
-				"Audio 1")
+			var fileName = prompt("Please enter a name for your media clip.", 
+				"Media 1")
 			if (fileName === null) {
-				fileName = "Audio 1"
+				fileName = "Media 1"
 			}
-	  	var blob = new Blob(chunks, {'type' : 'audio/mp4'});
+	  	var blob = new Blob(chunks, {'type' : 'video/mp4'});
 	  	// reset chunks for a new file 
 	  	chunks = [];
-	  	var audioURL = URL.createObjectURL(blob);
-	  	this.props.getRecordedAudioURLAndFileName(audioURL, `${fileName}.mp4`);
+	  	var mediaURL = URL.createObjectURL(blob);
+	  	this.props.getRecordedMediaURLAndFileName(mediaURL, `${fileName}.mp4`);
 		}.bind(this);
 
 		this.mediaRecorder.ondataavailable = function(event) {
@@ -117,5 +117,5 @@ export default Recorder;
 
 Recorder.propTypes = {
   stream: PropTypes.object.isRequired,
-  getRecordedAudioURLAndFileName: PropTypes.func.isRequired
+  getRecordedMediaURLAndFileName: PropTypes.func.isRequired
 };

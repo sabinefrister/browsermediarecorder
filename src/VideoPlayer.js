@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
 
-class AudioPlayer extends Component {
+class VideoPlayer extends Component {
 	render() {
     return (
 			<div>
 				<h3>{this.props.fileName}</h3>
-				<audio controls 
+				<video controls 
 					src={this.props.mediaURL}
 				/>
 			</div>
@@ -15,10 +15,10 @@ class AudioPlayer extends Component {
   }
 }
 
-export default AudioPlayer;
+export default VideoPlayer;
 
 
-AudioPlayer.propTypes = {
+VideoPlayer.propTypes = {
 	fileName: PropTypes.string.isRequired,
 	audioURL: PropTypes.string.isRequired
 };

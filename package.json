@@ -1,6 +1,6 @@
 {
-  "homepage": "https://sabinefrister.github.io/soundrecorder/",
-  "name": "soundrecorder",
+  "homepage": "https://sabinefrister.github.io/browsermediarecorder/",
+  "name": "browsermediarecorder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

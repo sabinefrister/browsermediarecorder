@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Navbar, Container, Jumbotron, Row, Col, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMicrophone } from '@fortawesome/free-solid-svg-icons';
+import { faPodcast } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import MicrophoneAccess from './MicrophoneAccess';
 import Recorder from './Recorder';
 import AudioPlayer from './AudioPlayer';
+import VideoPlayer from './VideoPlayer';
 import DownloadButton from './DownloadButton';
 import NewRecordingButton from './NewRecordingButton';
 
@@ -14,21 +15,21 @@ class App extends Component {
   constructor(props) {
     super(props);
 		this.state = {
-			audioURL: null,
+			mediasURL: null,
 			streamAvailable: false,
 			fileName: null,
 			showAlert: false,
 			alertMessage: ""
 		};
 		this.getStreamData = this.getStreamData.bind(this);
-		this.getRecordedAudioURLAndFileName = this.getRecordedAudioURLAndFileName.bind(this);
+		this.getRecordedMediaURLAndFileName = this.getRecordedMediaURLAndFileName.bind(this);
 		this.getErrorFromRecorder = this.getErrorFromRecorder.bind(this);
 		this.getErrorDueToMediaRecorder = this.getErrorDueToMediaRecorder.bind(this);
 		this.setNewRecording = this.setNewRecording.bind(this);
 	}
 
   componentDidMount(){
-    document.title = "Simple Sound Recorder"
+    document.title = "Browser Media Recorder"
   }
 
 	// callback function for getting the stream of MicrophoneAccess component
@@ -40,9 +41,9 @@ class App extends Component {
 			this.setState({stream: streamData, streamAvailable: true})
 		}
 	} 
-	// callback function for getting the audioURL and fileName of recorded clip from Recorder component
-	getRecordedAudioURLAndFileName(audioURL, fileName) {
-		this.setState({audioURL: audioURL, fileName: fileName})
+	// callback function for getting the mediaURL and fileName of recorded clip from Recorder component
+	getRecordedMediaURLAndFileName(mediaURL, fileName) {
+		this.setState({mediaURL: mediaURL, fileName: fileName})
 	}
 
 	getErrorFromRecorder(error) {
@@ -57,7 +58,7 @@ class App extends Component {
 	}
 
 	setNewRecording() {
-		this.setState({audioURL: null, fileName: null})
+		this.setState({mediaURL: null, fileName: null})
 	}
 
   render() {
@@ -65,17 +66,18 @@ class App extends Component {
   		<React.Fragment>
 			  <Navbar variant="dark">
 			    <Navbar.Brand>
-			    	<FontAwesomeIcon icon={faMicrophone}  className="d-inline-block align-top"/>
-			    	{' '}Record your voice
+			    	<FontAwesomeIcon icon={faPodcast}  className="d-inline-block align-top"/>
+			    	{' '}Record your podcast or web seminar
 			    </Navbar.Brand>
 			  </Navbar>
 			  <Alert variant="danger" show={this.state.showAlert}>
 			  	{this.state.alertMessage}
 		  	</Alert>
 				<Container className="main-container">
-				  <h1>Record Audio and Download it to Your Computer</h1>
+				  <h1>Record Audio and Video with Chrome and Download it to Your Computer</h1>
 				  <p>
-				    You can record anything you like with this simple sound recorder.
+				    You can record anything you like inside a browser tab with this recorder, 
+				    eg. a web seminar or a podcast. It only works with Chrome and you have to choose one Chrome Tab.
 				    After naming your file, you can download it to your computer. 
 				    The container of the file is mp4 with opus codex.
 				  </p>
@@ -94,19 +96,20 @@ class App extends Component {
 								<Col>
 									<Recorder 
 										stream={this.state.stream} 
-										getRecordedAudioURLAndFileName={this.getRecordedAudioURLAndFileName}
+										getRecordedMediaURLAndFileName={this.getRecordedMediaURLAndFileName}
 										getErrorFromRecorder={this.getErrorFromRecorder}
 										getErrorDueToMediaRecorder={this.getErrorDueToMediaRecorder}
 									/>
 								</Col>
 							</Row>
 						)}
-						{this.state.audioURL && (
+						{this.state.mediaURL && (
 							<Row>
 								<Col className="player">
 									<div className="Player">
-										<AudioPlayer audioURL={this.state.audioURL} fileName={this.state.fileName} />
-										<DownloadButton audioURL={this.state.audioURL} fileName={this.state.fileName} />
+										<AudioPlayer mediaURL={this.state.mediaURL} fileName={this.state.fileName} />
+										<VideoPlayer mediaURL={this.state.mediaURL} fileName={this.state.fileName} />
+										<DownloadButton mediaURL={this.state.mediaURL} fileName={this.state.fileName} />
 										<NewRecordingButton setNewRecording={this.setNewRecording}/>
 									</div>
 								</Col>

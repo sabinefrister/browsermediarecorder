@@ -11,10 +11,12 @@ class MicrophoneAccess extends Component {
 
   async getMicrophone() {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({
+      const stream = await navigator.mediaDevices.getDisplayMedia({
         audio: true,
-        video: false
+        video: true
       });
+      // remove video track
+      // stream.removeTrack(stream.getVideoTracks()[0])
       this.props.getStreamData(stream)
     }
     catch {
