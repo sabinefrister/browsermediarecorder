@@ -1,5 +1,5 @@
-This Project is a simple sound recorder using the Web Audio API. 
+This project is a browser media recorder using the Web Media Devices API. 
 
-It can record anything with the internal microphone and after naming the file, the sound file can be downloaded to the users computer. The codec of the audio file is opus in a MP4 container. 
+It can record anything inside a browser tab, eg. a web seminar or a podcast. It only works with Chrome choosing one Chrome Tab. After naming the file, the media file can be downloaded to the users computer. The codec of the media file is opus in a MP4 container. 
 
-The sound recorder is supported by Chrome, Firefox, Edge and Opera. It is not working with Safari and Internet Explorer due to the unsupported Media Recorder API.
+The browser media recorder is supported only by Chrome. It is not working with Safari, Firefox, Opera, Edge and Internet Explorer due to the unsupported audio recording.
