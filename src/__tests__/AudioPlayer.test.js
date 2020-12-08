@@ -8,8 +8,8 @@ describe('AudioPlayer', () => {
 
 	beforeEach(() => {
 		const fileName = "Test123.wav";
-		const audioURL = "https://audioURL";
-	  wrapper = shallow(<AudioPlayer fileName={fileName} audioURL={audioURL}/>);
+		const mediaURL = "https://mediaURL";
+	  wrapper = shallow(<AudioPlayer fileName={fileName} mediaURL={mediaURL}/>);
 	});
 
 	afterEach(() => {
@@ -24,8 +24,8 @@ describe('AudioPlayer', () => {
 
   test('renders AudioPlayer component with all necessary props', () => {
     expect(wrapper.instance().props.fileName).toEqual("Test123.wav");
-    expect(wrapper.instance().props.audioURL).toEqual("https://audioURL");
-    expect(wrapper.find('audio').props().src).toEqual("https://audioURL");
+    expect(wrapper.instance().props.mediaURL).toEqual("https://mediaURL");
+    expect(wrapper.find('audio').props().src).toEqual("https://mediaURL");
     expect(wrapper.find('audio').props().controls).toEqual(true);
   })
 });

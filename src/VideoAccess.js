@@ -3,25 +3,23 @@ import { Button } from 'react-bootstrap/';
 import PropTypes from 'prop-types'
 
 
-class MicrophoneAccess extends Component {
+class VideoAccess extends Component {
   constructor(props) {
     super(props);
-    this.getMicrophone = this.getMicrophone.bind(this);
+    this.getMediaInput = this.getMediaInput.bind(this);
   }
 
-  async getMicrophone() {
+  async getMediaInput() {
     try {
       const stream = await navigator.mediaDevices.getDisplayMedia({
         audio: true,
         video: true
       });
-      // remove video track
-      // stream.removeTrack(stream.getVideoTracks()[0])
-      this.props.getStreamData(stream)
+      this.props.getStreamData(stream, "video")
     }
     catch {
       return (
-        this.props.getStreamData("error")
+        this.props.getStreamData("error", "video")
       )
     }
   }
@@ -29,17 +27,17 @@ class MicrophoneAccess extends Component {
   render() {
     return (
       <React.Fragment>
-          <Button size="lg" onClick={this.getMicrophone}>
-            Allow microphone input
+          <Button size="lg" onClick={this.getMediaInput}>
+            Record Video and Audio
           </Button>
       </React.Fragment>
     );
   }
 }
 
-export default MicrophoneAccess;
+export default VideoAccess;
 
 
-MicrophoneAccess.propTypes = {
+VideoAccess.propTypes = {
   getStreamData: PropTypes.func.isRequired
 };

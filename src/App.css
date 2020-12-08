@@ -44,9 +44,12 @@ div.jumbotron {
   background-color: #0C005B;
   border: 1px solid #F1B900;
   box-shadow: 0 16px 28px 0 rgba(0,0,0,.22);
-  display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.mediaAccess {
+  padding-top: 1rem;
 }
 
 .modal-content {
@@ -64,6 +67,12 @@ div.jumbotron {
 audio {
   border-radius: 4px;
   width: 80%;
+  margin: 1rem 0;
+}
+
+video {
+  border-radius: 4px;
+  width: 60%;
   margin: 1rem 0;
 }
 

@@ -3,7 +3,8 @@ import { Navbar, Container, Jumbotron, Row, Col, Alert } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPodcast } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
-import MicrophoneAccess from './MicrophoneAccess';
+import AudioAccess from './AudioAccess';
+import VideoAccess from './VideoAccess';
 import Recorder from './Recorder';
 import AudioPlayer from './AudioPlayer';
 import VideoPlayer from './VideoPlayer';
@@ -16,6 +17,7 @@ class App extends Component {
     super(props);
 		this.state = {
 			mediasURL: null,
+			mediaType: "",
 			streamAvailable: false,
 			fileName: null,
 			showAlert: false,
@@ -33,12 +35,12 @@ class App extends Component {
   }
 
 	// callback function for getting the stream of MicrophoneAccess component
-	getStreamData(streamData) {
+	getStreamData(streamData, mediaType) {
 		if (streamData === "error") {
 			let microphoneAccessAlert = "It wasn't possible to access your microphone. Please reload this page and start again."
 			this.setState({showAlert: true, alertMessage: microphoneAccessAlert})
 		} else {
-			this.setState({stream: streamData, streamAvailable: true})
+			this.setState({stream: streamData, streamAvailable: true, mediaType: mediaType})
 		}
 	} 
 	// callback function for getting the mediaURL and fileName of recorded clip from Recorder component
@@ -77,19 +79,31 @@ class App extends Component {
 				  <h1>Record Audio and Video with Chrome and Download it to Your Computer</h1>
 				  <p>
 				    You can record anything you like inside a browser tab with this recorder, 
-				    eg. a web seminar or a podcast. It only works with Chrome and you have to choose one Chrome Tab.
-				    After naming your file, you can download it to your computer. 
+				    eg. a web seminar or a podcast. It only works with Chrome and you have to choose one Chrome Tab. 
+				    Please enable 'Share Audio'.
+				    After recording and naming your file, you can download it to your computer. 
 				    The container of the file is mp4 with opus codex.
 				  </p>
 				  <Jumbotron>
 						{!this.state.streamAvailable && (
-							<Row>
-								<Col className="recorder">
-									<MicrophoneAccess 
-										getStreamData={this.getStreamData} 					 
-									/>
-								</Col>
-							</Row>
+							<React.Fragment>
+								<Row>
+									<Col>
+										Share your Screen, choose Chrome Tab, choose one tab you want to record in and enable "Share Audio". 
+										Please select if you want to record 'audio' or 'video and audio'.
+									</Col>
+								</Row>
+								<Row>
+									<Col className="mediaAccess">
+										<AudioAccess 
+											getStreamData={this.getStreamData} 					 
+										/>
+										<VideoAccess 
+											getStreamData={this.getStreamData} 					 
+										/>
+									</Col>
+								</Row>
+							</React.Fragment>
 						)}
 						{this.state.streamAvailable && !this.state.fileName && (
 							<Row>
@@ -107,8 +121,12 @@ class App extends Component {
 							<Row>
 								<Col className="player">
 									<div className="Player">
-										<AudioPlayer mediaURL={this.state.mediaURL} fileName={this.state.fileName} />
-										<VideoPlayer mediaURL={this.state.mediaURL} fileName={this.state.fileName} />
+										{this.state.mediaType === "audio" ? (
+												<AudioPlayer mediaURL={this.state.mediaURL} fileName={this.state.fileName} />
+											) : (
+												<VideoPlayer mediaURL={this.state.mediaURL} fileName={this.state.fileName} />
+											)
+										}
 										<DownloadButton mediaURL={this.state.mediaURL} fileName={this.state.fileName} />
 										<NewRecordingButton setNewRecording={this.setNewRecording}/>
 									</div>
