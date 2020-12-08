@@ -76,7 +76,7 @@ class App extends Component {
 			  	{this.state.alertMessage}
 		  	</Alert>
 				<Container className="main-container">
-				  <h1>Record Audio and Video with Chrome and Download it to Your Computer</h1>
+				  <h1>Record Audio and Video with Chrome</h1>
 				  <p>
 				    You can record anything you like inside a browser tab with this recorder, 
 				    eg. a web seminar or a podcast. It only works with Chrome and you have to choose one Chrome Tab. 
@@ -89,8 +89,10 @@ class App extends Component {
 							<React.Fragment>
 								<Row>
 									<Col>
-										Share your Screen, choose Chrome Tab, choose one tab you want to record in and enable "Share Audio". 
-										Please select if you want to record 'audio' or 'video and audio'.
+										Please select if you want to record 'audio' or 'video and audio'. 
+										Then you will be asked to share your screen. You should choose Chrome Tab, 
+										decide which tab you want to record in and enable 'Share Audio'. 
+										After sharing your screen the record will start automatically.
 									</Col>
 								</Row>
 								<Row>

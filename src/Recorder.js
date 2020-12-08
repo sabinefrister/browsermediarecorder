@@ -61,6 +61,9 @@ class Recorder extends Component {
 		this.mediaRecorder.onError = function(event) {
 			this.props.getErrorFromRecorder(event.error.name)
 		}
+
+		// start recording automatically after access to screen
+		this.startRecording() 
   }
 
   componentWillUnmount() {
@@ -96,7 +99,6 @@ class Recorder extends Component {
 				<Button size="lg" 
 								className="recordButton"
 								id={this.state.idRecordButton} 
-								onClick={this.startRecording}
 								disabled={!this.state.enableRecordButton}>
 								Record
 				</Button>
@@ -117,5 +119,6 @@ export default Recorder;
 
 Recorder.propTypes = {
   stream: PropTypes.object.isRequired,
-  getRecordedMediaURLAndFileName: PropTypes.func.isRequired
+  getRecordedMediaURLAndFileName: PropTypes.func.isRequired,
+  getErrorDueToMediaRecorder: PropTypes.func.isRequired
 };
