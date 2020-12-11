@@ -20,7 +20,7 @@ describe('Timer', () => {
   test('render Timer component with all elements', () => {
     wrapper = shallowComponent(false);
     expect(wrapper.find('.timer').length).toBe(1);
-    expect(wrapper.contains(<h3>00:00:00</h3>)).toEqual(true)
+    expect(wrapper.contains(<div>00:00:00</div>)).toEqual(true)
   })  
 
   test('render Timer which has not started yet', () => {
@@ -31,7 +31,7 @@ describe('Timer', () => {
   test('renders Timer component with all necessary props', () => {
     wrapper = shallowComponent(true);
     expect(wrapper.instance().props.timerStarted).toEqual(true);
-    expect(wrapper.contains(<h3>00:00:00</h3>)).toEqual(true)
+    expect(wrapper.contains(<div>00:00:00</div>)).toEqual(true)
   }) 
 
   test('renders correct timer after one second', () => {

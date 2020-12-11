@@ -34,7 +34,7 @@ class App extends Component {
     document.title = "Browser Media Recorder"
   }
 
-	// callback function for getting the stream of AudioAccess or MediaAccess component
+	// callback function for getting the stream of AudioAccess or VideoAccess component
 	getStreamData(streamData, mediaType) {
 		if (streamData === "error") {
 			let mediaAccessAlert = "It wasn't possible to access your screen sharing. Please reload this page and start again."
