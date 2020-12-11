@@ -34,11 +34,11 @@ class App extends Component {
     document.title = "Browser Media Recorder"
   }
 
-	// callback function for getting the stream of MicrophoneAccess component
+	// callback function for getting the stream of AudioAccess or MediaAccess component
 	getStreamData(streamData, mediaType) {
 		if (streamData === "error") {
-			let microphoneAccessAlert = "It wasn't possible to access your microphone. Please reload this page and start again."
-			this.setState({showAlert: true, alertMessage: microphoneAccessAlert})
+			let mediaAccessAlert = "It wasn't possible to access your screen sharing. Please reload this page and start again."
+			this.setState({showAlert: true, alertMessage: mediaAccessAlert})
 		} else {
 			this.setState({stream: streamData, streamAvailable: true, mediaType: mediaType})
 		}
