@@ -16,12 +16,13 @@ class App extends Component {
   constructor(props) {
     super(props);
 		this.state = {
-			mediasURL: null,
+			mediaURL: null,
 			mediaType: "",
 			streamAvailable: false,
 			fileName: null,
 			showAlert: false,
-			alertMessage: ""
+			alertMessage: "", 
+			stream: null,
 		};
 		this.getStreamData = this.getStreamData.bind(this);
 		this.getRecordedMediaURLAndFileName = this.getRecordedMediaURLAndFileName.bind(this);
@@ -60,7 +61,10 @@ class App extends Component {
 	}
 
 	setNewRecording() {
-		this.setState({mediaURL: null, fileName: null})
+		this.state.stream.getTracks().forEach(function(track) {
+		  track.stop();
+		});
+		this.setState({streamAvailable: null, mediaURL: null, fileName: null, stream: null})
 	}
 
   render() {

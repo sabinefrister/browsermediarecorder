@@ -25,7 +25,7 @@ class AudioAccess extends Component {
       )
     }
   }
-
+mediaAccessAlert
   render() {
     return (
       <React.Fragment>
