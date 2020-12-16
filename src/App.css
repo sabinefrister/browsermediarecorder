@@ -3,7 +3,7 @@
   color: #FFFFFF;
   background-color: #0C005B;
   font-family: 'Quicksand', sans-serif;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 body {
@@ -36,6 +36,9 @@ p {
 
 .main-container {
   margin: 6% 10%;
+  margin-bottom: 0;
+  padding-bottom: 5rem;
+
 }
 
 div.jumbotron {
@@ -46,6 +49,7 @@ div.jumbotron {
   justify-content: center;
   align-items: center;
   padding: 2rem 1rem;
+  margin-bottom: 0;
 }
 
 .mediaAccess {
@@ -72,7 +76,7 @@ audio {
 
 video {
   border-radius: 4px;
-  width: 60%;
+  width: 80%;
   margin: 1rem 0;
 }
 
