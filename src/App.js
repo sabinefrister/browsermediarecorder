@@ -83,8 +83,7 @@ class App extends Component {
 				  <h1>Record Audio and Video with Chrome</h1>
 				  <p>
 				    You can record anything you like inside a browser tab with this recorder, 
-				    eg. a web seminar or a podcast. It only works with Chrome and you have to choose one Chrome Tab. 
-				    Please enable 'Share Audio'.
+				    eg. a web seminar or a podcast. It only works with Chrome!
 				    After recording and naming your file, you can download it to your computer. 
 				    The container of the file is mp4 with opus codex.
 				  </p>
@@ -93,10 +92,13 @@ class App extends Component {
 							<React.Fragment>
 								<Row>
 									<Col>
-										Please select if you want to record 'audio' or 'video and audio'. 
-										Then you will be asked to share your screen. You should choose Chrome Tab, 
-										decide which tab you want to record in and enable 'Share Audio'. 
-										After sharing your screen the record will start automatically.
+										<p>Please select if you want to record 'audio' or 'video and audio'. </p>
+										<p>Then you will be asked to share your screen. You should choose Chrome Tab on the 
+										right side, decide which tab you want to record in and enable 'Share Audio' on the left bottom. 
+										After sharing your screen the record will start automatically. </p>
+										<p>If you are recording a video, you can enter full screen in the tab you are recording 
+										in. You should stay there while recording. Otherwise you can increase the video size 
+										by zooming inside the browser.</p>
 									</Col>
 								</Row>
 								<Row>

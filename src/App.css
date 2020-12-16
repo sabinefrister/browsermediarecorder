@@ -25,6 +25,10 @@ p {
   margin: 0 12%;
 }
 
+.jumbotron p {
+  margin: 0 3%;
+}
+
 .timer div {
   font-size: 2.5rem;
   padding-bottom: 1rem;
@@ -42,7 +46,8 @@ p {
 }
 
 div.jumbotron {
-  margin: 3% 20%;
+  width: 80%;
+  margin: 3% 10%;
   background-color: #0C005B;
   border: 1px solid #F1B900;
   box-shadow: 0 16px 28px 0 rgba(0,0,0,.22);
@@ -89,7 +94,7 @@ video {
 
 .btn.btn-primary:hover {
   margin: 0 10px;
-  background-color: #FFD301;
+  background-color: #F1B900;
   border: 1px solid #F1B900;
   color: white;
 }
