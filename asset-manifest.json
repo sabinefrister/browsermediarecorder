@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/browsermediarecorder/static/css/main.ae35bf89.chunk.css",
-    "main.js": "/browsermediarecorder/static/js/main.8ceb8ca6.chunk.js",
-    "main.js.map": "/browsermediarecorder/static/js/main.8ceb8ca6.chunk.js.map",
+    "main.css": "/browsermediarecorder/static/css/main.1c2b56aa.chunk.css",
+    "main.js": "/browsermediarecorder/static/js/main.a7bf2de9.chunk.js",
+    "main.js.map": "/browsermediarecorder/static/js/main.a7bf2de9.chunk.js.map",
     "runtime-main.js": "/browsermediarecorder/static/js/runtime-main.2ffeb7ca.js",
     "runtime-main.js.map": "/browsermediarecorder/static/js/runtime-main.2ffeb7ca.js.map",
     "static/css/2.a7573f04.chunk.css": "/browsermediarecorder/static/css/2.a7573f04.chunk.css",
@@ -10,14 +10,14 @@
     "static/js/2.b3b0876b.chunk.js.map": "/browsermediarecorder/static/js/2.b3b0876b.chunk.js.map",
     "index.html": "/browsermediarecorder/index.html",
     "static/css/2.a7573f04.chunk.css.map": "/browsermediarecorder/static/css/2.a7573f04.chunk.css.map",
-    "static/css/main.ae35bf89.chunk.css.map": "/browsermediarecorder/static/css/main.ae35bf89.chunk.css.map",
+    "static/css/main.1c2b56aa.chunk.css.map": "/browsermediarecorder/static/css/main.1c2b56aa.chunk.css.map",
     "static/js/2.b3b0876b.chunk.js.LICENSE.txt": "/browsermediarecorder/static/js/2.b3b0876b.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.2ffeb7ca.js",
     "static/css/2.a7573f04.chunk.css",
     "static/js/2.b3b0876b.chunk.js",
-    "static/css/main.ae35bf89.chunk.css",
-    "static/js/main.8ceb8ca6.chunk.js"
+    "static/css/main.1c2b56aa.chunk.css",
+    "static/js/main.a7bf2de9.chunk.js"
   ]
 }
